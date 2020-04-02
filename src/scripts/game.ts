@@ -1,6 +1,6 @@
 import "phaser";
 import { GAME_WIDTH, GAME_HEIGHT, GRAVITY_Y, TILE_BIAS, FPS } from "./common/consts";
-import { UIScene } from "./scenes/ui-scene.ts";
+import { UIScene } from "./scenes/ui-scene";
 import { GameOverScene } from "./scenes/game-over-scene";
 import { FinishScene } from "./scenes/finish-scene";
 import { StartScene } from "./scenes/start-scene";
