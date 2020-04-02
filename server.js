@@ -8,7 +8,7 @@ var app, server,
 app = express();
 app.use(function (req, res, next) { console.log(req.url); next(); });
 console.log(__dirname)
-app.use(express.static(__dirname + '/dist'));
+app.use(express.static(root + '/dist'));
 server = app.listen(port, host, serverStarted);
 
 function serverStarted() {
