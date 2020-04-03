@@ -14,7 +14,7 @@ export class UIScene extends Phaser.Scene {
   }
 
   getCollectedText = () => `Collected: ${gameData.collected}/${gameData.total}`
-  getLivesText = () => `Lives: ${gameData.lives}`
+  getLivesText = () => gameData.disableLives ? ''  : `Lives: ${gameData.lives}`
   refreshText = (data?) => {
     this.scoreText.setText(this.getCollectedText())
     data && this.levelText.setText(data.level.name)

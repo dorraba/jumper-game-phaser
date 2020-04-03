@@ -247,7 +247,7 @@ export class MainScene extends Phaser.Scene {
       gameData.lives--;
     }
     options.level = this.level
-    const gameOver = gameData.lives < 0;
+    const gameOver = !gameData.disableLives && gameData.lives < 0;
     options.gameOver = gameOver;
     this.time.delayedCall(450, () => {
       this.uiScene.events.emit('resetScore', options);

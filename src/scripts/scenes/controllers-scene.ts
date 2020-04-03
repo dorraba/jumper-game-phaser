@@ -29,10 +29,10 @@ export class ControllersScene extends Phaser.Scene {
     const arrowUp = new ArrowButton(this, window.innerWidth - 100, buttonTop, 'up');
     const arrowLeft = new ArrowButton(this, 80, buttonTop, 'left').setRotation(-1.57);
     const arrowRight = new ArrowButton(this, 180, buttonTop, 'right').setRotation(1.57);
-    this.input.on('gameobjectdown', (pointer, gameObject: ArrowButton) => {
+    this.input.on('gameobjectover', (pointer, gameObject: ArrowButton) => {
       this.events.emit('gameobjectdown', gameObject.arrowType)
     })
-    this.input.on('gameobjectup', (pointer, gameObject: ArrowButton) => {
+    this.input.on('gameobjectout', (pointer, gameObject: ArrowButton) => {
       console.log('controllers ', gameObject.arrowType)
       this.events.emit('gameobjectup', gameObject.arrowType)
     })

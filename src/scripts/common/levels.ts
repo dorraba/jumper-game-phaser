@@ -6,10 +6,10 @@ export const LEVELS = {
     id: 'level1_1',
     name: 'Level 1-1',
     background: 'Blue',
-    width: 800,
+    width: Math.min(window.innerWidth, 800),
     levelWidth: 800,
     levelHeight: 320,
-    cameraWidth: 1200,
+    cameraWidth: window.innerWidth,
     height: GAME_HEIGHT
   },
   level1_2: {
@@ -17,10 +17,10 @@ export const LEVELS = {
     id: 'level1_2',
     name: 'Level 1-2',
     background: 'Gray',
-    width: 800,
+    width: Math.min(window.innerWidth, 800),
     levelWidth: 800,
     levelHeight: 800,
-    cameraWidth: 1200,
+    cameraWidth: window.innerWidth,
     height: GAME_HEIGHT
   },
   level1_3: {
@@ -28,10 +28,10 @@ export const LEVELS = {
     id: 'level1_3',
     name: 'Level 1-3',
     background: 'Gray',
-    width: 800,
+    width: Math.min(window.innerWidth, 800),
     levelWidth: 800,
     levelHeight: 800,
-    cameraWidth: 1200,
+    cameraWidth: window.innerWidth,
     height: GAME_HEIGHT
   },
   level1_4: {
@@ -39,10 +39,10 @@ export const LEVELS = {
     id: 'level1_4',
     name: 'Level 1-4',
     background: 'Gray',
-    width: 800,
+    width: Math.min(window.innerWidth, 800),
     levelWidth: 800,
     levelHeight: 800,
-    cameraWidth: 1200,
+    cameraWidth: window.innerWidth,
     height: GAME_HEIGHT
   },
   level1_5: {
@@ -50,10 +50,10 @@ export const LEVELS = {
     id: 'level1_5',
     name: 'Level 1-5',
     background: 'Gray',
-    width: 800,
+    width: Math.min(window.innerWidth, 800),
     levelWidth: 800,
     levelHeight: 800,
-    cameraWidth: 1200,
+    cameraWidth: window.innerWidth,
     height: GAME_HEIGHT
   },
   level1_6: {
@@ -61,10 +61,10 @@ export const LEVELS = {
     id: 'level1_6',
     name: 'Level 1-6',
     background: 'Gray',
-    width: 800,
+    width: Math.min(window.innerWidth, 800),
     levelWidth: 800,
     levelHeight: 800,
-    cameraWidth: 1200,
+    cameraWidth: window.innerWidth,
     height: GAME_HEIGHT
   },
   level1_7: {
@@ -72,10 +72,10 @@ export const LEVELS = {
     id: 'level1_7',
     name: 'Level 1-7',
     background: 'Gray',
-    width: 800,
+    width: Math.min(window.innerWidth, 800),
     levelWidth: 800,
     levelHeight: 800,
-    cameraWidth: 1200,
+    cameraWidth: window.innerWidth,
     height: GAME_HEIGHT
   },
   level1_8: {
@@ -83,10 +83,10 @@ export const LEVELS = {
     id: 'level1_8',
     name: 'Level 8',
     background: 'Blue',
-    width: 1200,
+    width: Math.min(window.innerWidth, 800),
     levelWidth: 800,
     levelHeight: 800,
-    cameraWidth: 1200,
+    cameraWidth: window.innerWidth,
     height: GAME_HEIGHT
   },
   level1_9: {
@@ -94,10 +94,10 @@ export const LEVELS = {
     id: 'level1_9',
     name: 'Level 9',
     background: 'Blue',
-    width: 1200,
+    width: Math.min(window.innerWidth, 800),
     levelWidth: 800,
     levelHeight: 800,
-    cameraWidth: 1200,
+    cameraWidth: window.innerWidth,
     height: GAME_HEIGHT
   },
   level1_10: {
@@ -105,7 +105,7 @@ export const LEVELS = {
     id: 'level1_10',
     name: 'Level 10',
     background: 'Green',
-    width: 800 * 4,
+    width: Math.min(window.innerWidth, 800),
     levelWidth: 800 * 4,
     levelHeight: 800,
     cameraWidth: window.innerWidth,
@@ -113,4 +113,4 @@ export const LEVELS = {
   },
 };
 
-export const FIRST_LEVEL_ID = 'level1_1';
+export const FIRST_LEVEL_ID = 'level1_10';

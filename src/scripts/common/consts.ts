@@ -4,7 +4,7 @@ const mobileAndTabletcheck = function() {
   return check;
 };
 
-export const GAME_WIDTH: number = window.innerWidth * 4;
+export const GAME_WIDTH: number = window.innerWidth;
 export const GAME_HEIGHT: number = window.innerHeight;
 export const RUN_VELOCITY: number = 200;
 export const JUMP_VELOCITY: number = 700;

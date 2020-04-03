@@ -5,5 +5,6 @@ export default (() => {
     lives: LIVES_COUNT,
     collected: 0,
     total: 0,
+    disableLives: true
   }
 })()
