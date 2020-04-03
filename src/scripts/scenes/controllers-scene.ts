@@ -6,7 +6,7 @@ class ArrowButton extends Phaser.GameObjects.Image {
   constructor(scene, x, y, public arrowType: string) {
     super(scene, x, y, 'arrowButton');
     this.scene.add.existing(this)
-    this.setScale(0.5);
+    this.setScale(0.6);
     this.setAlpha(0.5);
     this.setInteractive();
   }
