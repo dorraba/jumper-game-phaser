@@ -113,4 +113,4 @@ export const LEVELS = {
   },
 };
 
-export const FIRST_LEVEL_ID = 'level1_10';
+export const FIRST_LEVEL_ID = 'level1_1';
