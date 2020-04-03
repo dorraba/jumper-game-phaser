@@ -17,15 +17,15 @@
          "objects":[
                 {
                  "height":0,
-                 "id":220,
+                 "id":222,
                  "name":"",
                  "point":true,
                  "rotation":0,
                  "type":"",
                  "visible":true,
                  "width":0,
-                 "x":2368,
-                 "y":704
+                 "x":96.1841690318511,
+                 "y":622.831914222643
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -1132,7 +1132,7 @@
          "y":0
         }],
  "nextlayerid":18,
- "nextobjectid":221,
+ "nextobjectid":223,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.3.3",
