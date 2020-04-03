@@ -33,7 +33,6 @@ export class ControllersScene extends Phaser.Scene {
       this.events.emit('gameobjectdown', gameObject.arrowType)
     })
     this.input.on('gameobjectout', (pointer, gameObject: ArrowButton) => {
-      console.log('controllers ', gameObject.arrowType)
       this.events.emit('gameobjectup', gameObject.arrowType)
     })
   }

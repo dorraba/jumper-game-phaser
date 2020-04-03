@@ -6,6 +6,7 @@ import { FinishScene } from "./scenes/finish-scene";
 import { StartScene } from "./scenes/start-scene";
 import { MainScene } from "./scenes/main-scene";
 import { ControllersScene } from "./scenes/controllers-scene";
+import { PreloadScene } from "./scenes/preload-scene";
 
 // main game configuration
 const config: any = {
@@ -34,6 +35,7 @@ export class Game extends Phaser.Game {
     super(config);
     //Start game scene - select player
     //Level map select
+    this.scene.add('PreloadScene', PreloadScene);
     this.scene.add('MainScene', MainScene);
     this.scene.add('UIScene', UIScene);
     this.scene.add('GameOverScene', GameOverScene);

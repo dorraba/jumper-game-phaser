@@ -98,9 +98,9 @@ export const LEVELS = {
     background: 'Green',
     width: window.innerWidth,
     levelWidth: 800 * 4,
-    levelHeight: 960,
+    levelHeight: 850,
     height: GAME_HEIGHT
   },
 };
 
-export const FIRST_LEVEL_ID = 'level1_5';
+export const FIRST_LEVEL_ID = 'level1_1';
