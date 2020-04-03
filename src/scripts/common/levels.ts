@@ -82,7 +82,7 @@ export const LEVELS = {
     height: GAME_HEIGHT
   },
   level1_9: {
-    index: 9,
+    index: 8,
     id: 'level1_9',
     name: 'Level 9',
     background: 'Blue',
@@ -92,7 +92,7 @@ export const LEVELS = {
     height: GAME_HEIGHT
   },
   level1_10: {
-    index: 3,
+    index: 9,
     id: 'level1_10',
     name: 'Level 10',
     background: 'Green',
