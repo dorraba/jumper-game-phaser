@@ -286,7 +286,7 @@ export class MainScene extends Phaser.Scene {
     this.cameras.main.zoomTo(CAMERA_ZOOM, 1000)
     const width = this.level.cameraWidth;
     this.cameras.main.setSize(width, CAMERA_HEIGHT)
-    document.getElementById('game').style.width = this.level.levelWidth + 'px';
+    // document.getElementById('game').style.width = this.level.levelWidth + 'px';
     this.cameras.main.setBounds(0, 0, this.level.levelWidth, this.level.levelHeight);
     this.cameras.main.startFollow(this.player, false, CAMERA_LERP, CAMERA_LERP)
   }

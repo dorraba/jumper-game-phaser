@@ -1,4 +1,4 @@
-import { ANIMATION_FRAME_RATE, JUMP_VELOCITY, RUN_VELOCITY } from "../common/consts";
+import { ANIMATION_FRAME_RATE, JUMP_VELOCITY, RUN_VELOCITY, IS_MOBILE } from "../common/consts";
 
 export class Player extends Phaser.Physics.Arcade.Sprite {
   private uiScene: Phaser.Scene;
@@ -7,6 +7,12 @@ export class Player extends Phaser.Physics.Arcade.Sprite {
   private jumpPressed: number = 0;
   private disableKeys: Boolean = false;
   private sounds: Array<any> = [];
+  private mobileControllers = {
+    left: false,
+    right: false,
+    up: false,
+    upPressed: false,
+  }
 
   constructor(scene, x, y) {
     super(scene, x, y, 'playerIdle')
@@ -63,6 +69,25 @@ export class Player extends Phaser.Physics.Arcade.Sprite {
     this.spaceKey = scene.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE);
     this.sounds['jump'] = this.scene.sound.add('jump');
 
+
+    //mobile controllers
+    if (IS_MOBILE) {
+      const controllersScene = this.scene.scene.get('ControllersScene');
+      controllersScene.events.on('gameobjectdown', (arrowType) => {
+        this.mobileControllers[arrowType] = true;
+        if (arrowType === 'up') {
+          this.mobileControllers.up = false;
+          this.mobileControllers.upPressed = true;
+        }
+      })
+
+      controllersScene.events.on('gameobjectup', (arrowType) => {
+        this.mobileControllers[arrowType] = false
+        if (arrowType === 'up') {
+          this.mobileControllers.upPressed = false;
+        }
+      })
+    }
   }
 
   stopPlayer = () => {
@@ -81,35 +106,40 @@ export class Player extends Phaser.Physics.Arcade.Sprite {
     this.sounds['jump'].play()
   }
 
+
+
   update(cursors) {
     if (this.disableKeys) {
       return;
     }
     // check if the up or down key is pressed
+    const isMobileUp = this.mobileControllers.upPressed && !this.mobileControllers.up
     if (this.body.blocked.down || this.body.touching.down) {
       this.body.velocity.x === 0 && this.anims.play('idle', true)
       this.jumpPressed = 0;
     } else {
       this.body.velocity.y < 0 ? this.anims.play('jump') : this.anims.play('fall')
     }
-    if ((Phaser.Input.Keyboard.JustDown(this.upKey) || Phaser.Input.Keyboard.JustDown(this.spaceKey)) && this.jumpPressed < 2) {
+    if ((isMobileUp || (Phaser.Input.Keyboard.JustDown(this.upKey) || Phaser.Input.Keyboard.JustDown(this.spaceKey))) && this.jumpPressed < 2) {
+      this.mobileControllers.upPressed = false;
+      this.mobileControllers.up = false;
       this.jumpPressed++;
       this.setVelocityY(Math.min(0, this.body.velocity.y) - JUMP_VELOCITY);
       this.sounds['jump'].play()
     }
-    else if (cursors.left.isDown) {
+    else if (cursors.left?.isDown || this.mobileControllers.left) {
       this.setVelocityX(RUN_VELOCITY * -1);
       this.flipX = true;
       if (this.body.blocked.down) {
         this.anims.play('run', true)
       }
-    } else if (cursors.right.isDown) {
+    } else if (cursors.right?.isDown || this.mobileControllers.right) {
       this.setVelocityX(RUN_VELOCITY);
       this.flipX = false;
       if (this.body.blocked.down) {
         this.anims.play('run', true)
       }
-    } else {
+    } else if (!this.mobileControllers.right && !this.mobileControllers.left) {
       this.setVelocityX(0);
       this.body.blocked.down && this.anims.play('idle', true)
     }

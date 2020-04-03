@@ -19,19 +19,12 @@ export class UIScene extends Phaser.Scene {
     this.scoreText.setText(this.getCollectedText())
     data && this.levelText.setText(data.level.name)
     this.livesText.setText(this.getLivesText())
-    if (this.level.levelWidth > 500) {
-      this.scoreText.setPosition(230, 20)
-      this.livesText.setPosition(630, 20)
-    } else {
-      this.scoreText.setPosition(20, 70)
-      this.livesText.setPosition(20, 120)
-    }
   };
   create(): void {
     this.level = LEVELS[FIRST_LEVEL_ID];
     this.levelText = this.add.text(20, 20, this.level.name, { fontSize: '32px', fill: '#fff' })
-    this.scoreText = this.add.text(20, 70, this.getCollectedText(), { fontSize: '32px', fill: '#fff' })
-    this.livesText = this.add.text(20, 120, this.getLivesText(), { fontSize: '32px', fill: '#fff' })
+    this.scoreText = this.add.text(230, 20, this.getCollectedText(), { fontSize: '32px', fill: '#fff' })
+    this.livesText = this.add.text(630, 20, this.getLivesText(), { fontSize: '32px', fill: '#fff' })
     this.levelText.setShadow(3, 3, 'rgba(0,0,0,0.5)', 5);
     this.scoreText.setShadow(3, 3, 'rgba(0,0,0,0.5)', 5);
     this.livesText.setShadow(3, 3, 'rgba(0,0,0,0.5)', 5);

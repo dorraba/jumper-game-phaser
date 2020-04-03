@@ -6,10 +6,10 @@ export const LEVELS = {
     id: 'level1_1',
     name: 'Level 1-1',
     background: 'Blue',
-    width: 480,
-    levelWidth: 480,
+    width: 800,
+    levelWidth: 800,
     levelHeight: 320,
-    cameraWidth: 480,
+    cameraWidth: 1200,
     height: GAME_HEIGHT
   },
   level1_2: {
