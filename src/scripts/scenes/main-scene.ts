@@ -126,6 +126,7 @@ export class MainScene extends Phaser.Scene {
     const checkpointCoords = this.map.objects.find(x => x.name === "checkpoint")?.objects[0];
     const playerCoords = this.map.objects.find(x => x.name === "player")?.objects[0];
     const fruitsCoords = this.map.objects.find(x => x.name === "fruits")?.objects || [];
+    const bottomLineCoords = this.map.objects.find(x => x.name === "bottomLine")?.objects || [];
     const spikesCoords = this.map.objects.find(x => x.name === "spikes")?.objects || [];
     const sawsCoords = this.map.objects.find(x => x.name === "saws")?.objects || [];
     const fallingPlatformsCoords = this.map.objects.find(x => x.name === "fallingPlatforms")?.objects || [];
@@ -179,10 +180,12 @@ export class MainScene extends Phaser.Scene {
       return new Fruit(this, coord.x, coord.y, fruitType);
     })
 
+      const coord = bottomLineCoords[0]
+      this.bottomBoundRect = this.add.rectangle(coord.x, coord.y, coord.width, coord.height, 0x000000, 0).setOrigin(0, 0)
+
     this.trampolines = trampolineCoords.map((coord) => new Trampoline(this, coord.x, coord.y));
 
     this.checkpoint = new Checkpoint(this, checkpointCoords?.x, checkpointCoords?.y);
-    this.bottomBoundRect = this.add.rectangle(GAME_WIDTH / 2, this.level.levelHeight, GAME_WIDTH, 2, 0x000000, 0)
     this.physics.add.existing(this.bottomBoundRect, true)
 
   }
@@ -284,9 +287,10 @@ export class MainScene extends Phaser.Scene {
     }
     this.cameras.main.setViewport(0, viewportHeight, 1000, 1000)
     this.cameras.main.zoomTo(CAMERA_ZOOM, 1000)
-    const width = this.level.cameraWidth;
+    const width = Math.min(window.innerWidth, this.level.levelWidth);
     this.cameras.main.setSize(width, CAMERA_HEIGHT)
     // document.getElementById('game').style.width = this.level.levelWidth + 'px';
+    console.log(this.level.levelWidth)
     this.cameras.main.setBounds(0, 0, this.level.levelWidth, this.level.levelHeight);
     this.cameras.main.startFollow(this.player, false, CAMERA_LERP, CAMERA_LERP)
   }
