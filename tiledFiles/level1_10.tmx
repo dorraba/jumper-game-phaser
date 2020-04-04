@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.2" tiledversion="1.3.3" orientation="orthogonal" renderorder="right-down" width="200" height="80" tilewidth="16" tileheight="16" infinite="0" nextlayerid="18" nextobjectid="223">
+<map version="1.2" tiledversion="1.3.3" orientation="orthogonal" renderorder="right-down" width="200" height="80" tilewidth="16" tileheight="16" infinite="0" nextlayerid="18" nextobjectid="224">
  <editorsettings>
   <export target="../src/assets/levels/level1_10.json" format="json"/>
  </editorsettings>
@@ -183,7 +183,7 @@
   </object>
  </objectgroup>
  <objectgroup id="3" name="checkpoint">
-  <object id="9" x="3104" y="688">
+  <object id="9" x="3088" y="688">
    <point/>
   </object>
  </objectgroup>
@@ -256,6 +256,9 @@
  </objectgroup>
  <objectgroup id="16" name="trampolines">
   <object id="214" x="2848" y="736">
+   <point/>
+  </object>
+  <object id="223" x="3168" y="736">
    <point/>
   </object>
  </objectgroup>
