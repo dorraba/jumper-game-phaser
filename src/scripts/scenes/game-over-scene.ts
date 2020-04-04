@@ -10,7 +10,6 @@ export class GameOverScene extends Phaser.Scene {
   }
 
   create(): void {
-    document.getElementById('game').style.width = window.innerWidth + 'px';
     this.game.scale.setGameSize(window.innerWidth, window.innerHeight)
     this.scene.stop('MainScene');
     IS_MOBILE && this.scene.stop('ControllersScene');

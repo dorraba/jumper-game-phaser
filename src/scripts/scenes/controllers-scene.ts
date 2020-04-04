@@ -35,5 +35,8 @@ export class ControllersScene extends Phaser.Scene {
     this.input.on('gameobjectout', (pointer, gameObject: ArrowButton) => {
       this.events.emit('gameobjectup', gameObject.arrowType)
     })
+    window.onorientationchange = () => {
+      this.time.delayedCall(500, this.scene.restart, [], this.scene)
+    }
   }
 }

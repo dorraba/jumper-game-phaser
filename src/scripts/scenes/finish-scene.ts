@@ -15,7 +15,6 @@ export class FinishScene extends Phaser.Scene {
   create(): void {
     const finishSound = this.sound.add('finishGame');
     finishSound.play();
-    document.getElementById('game').style.width = window.innerWidth + 'px';
     this.game.scale.setGameSize(window.innerWidth, window.innerHeight)
     this.scene.stop('MainScene');
     this.scene.setVisible(false, 'UIScene');

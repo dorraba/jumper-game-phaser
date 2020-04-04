@@ -7,7 +7,7 @@
 import { Player } from "../sprites/player";
 import { Blocks } from "../groups/blocks";
 import { FIRST_LEVEL_ID } from '../common/levels';
-import { GAME_WIDTH, GAME_HEIGHT, CAMERA_ZOOM, CAMERA_HEIGHT, TERRAIN_SIZE, TRAMPOLINE_SIZE_X, TRAMPOLINE_SIZE_Y, PLAYER_SIZE, CAMERA_LERP, CHECKPOINT_SIZE, FRUIT_SIZE, SPIKE_SIZE_X, SPIKE_SIZE_Y, PLAYER_DEAD_SIZE, LIVES_COUNT, GRAVITY_Y, FLOATING_TERRAIN_Y, FLOATING_TERRAIN_X, FALLING_PLATFORM_Y, FALLING_PLATFORM_X, SAW_SIZE_X, SAW_SIZE_Y } from "../common/consts";
+import { GAME_WIDTH, GAME_HEIGHT, CAMERA_ZOOM, CAMERA_HEIGHT, TERRAIN_SIZE, TRAMPOLINE_SIZE_X, TRAMPOLINE_SIZE_Y, PLAYER_SIZE, CAMERA_LERP, CHECKPOINT_SIZE, FRUIT_SIZE, SPIKE_SIZE_X, SPIKE_SIZE_Y, PLAYER_DEAD_SIZE, LIVES_COUNT, GRAVITY_Y, FLOATING_TERRAIN_Y, FLOATING_TERRAIN_X, FALLING_PLATFORM_Y, FALLING_PLATFORM_X, SAW_SIZE_X, SAW_SIZE_Y, IS_MOBILE } from "../common/consts";
 import { Checkpoint } from "../sprites/checkpoint";
 import { Fruit } from "../sprites/fruit";
 import { Saw } from "../sprites/saw";
@@ -61,6 +61,11 @@ export class MainScene extends Phaser.Scene {
     this.setCollisions();
     this.setCamera();
     this.initKeyboard();
+
+    this.scale.on('orientationchange', (orientation) => {
+      this.scale.updateOrientation()
+      this.time.delayedCall(500, this.setCamera, [], this)
+    });
   }
 
   addSounds = () => {
@@ -76,7 +81,10 @@ export class MainScene extends Phaser.Scene {
     this.scene.stop('')
     this.gameRestarting = false;
     this.uiScene = this.scene.get('UIScene')
-    this.game.scale.setGameSize(this.level.width, this.level.height)
+    if (IS_MOBILE) {
+      document.getElementById('game').style.width = 960 + 'px';
+    }
+    this.game.scale.setGameSize(IS_MOBILE ? this.level.width : 960, this.level.height)
   }
 
   addBackground = () => {
@@ -121,7 +129,6 @@ export class MainScene extends Phaser.Scene {
     this.saws = sawsCoords.map(coord => {
       const duration = coord.properties?.find(x => x.name === 'duration')?.value;
       const reverse = coord.properties?.find(x => x.name === 'reverse')?.value;
-      console.log({reverse})
       let options = {}
       if (duration) {
         options = { duration };
@@ -232,14 +239,12 @@ export class MainScene extends Phaser.Scene {
   }
 
   finishGame = () => {
-    document.getElementById('game').style.width = window.innerWidth + 'px';
     this.scene.pause('MainScene');
     this.scene.setVisible(false, 'UIScene');
     this.scene.start('FinishScene');
   }
 
   gameOver = () => {
-    document.getElementById('game').style.width = window.innerWidth + 'px';
     this.scene.pause('MainScene');
     this.scene.setVisible(false, 'UIScene');
     this.scene.start('GameOverScene');
@@ -254,9 +259,7 @@ export class MainScene extends Phaser.Scene {
     this.cameras.main.setViewport(0, viewportHeight, 1000, 1000)
     this.cameras.main.zoomTo(CAMERA_ZOOM, 1000)
     const width = Math.min(window.innerWidth, this.level.levelWidth);
-    this.cameras.main.setSize(width, CAMERA_HEIGHT)
-    // document.getElementById('game').style.width = this.level.levelWidth + 'px';
-    console.log(this.level.levelWidth)
+    this.cameras.main.setSize(width, window.innerHeight)
     this.cameras.main.setBounds(0, 0, this.level.levelWidth, this.level.levelHeight);
     this.cameras.main.startFollow(this.player, false, CAMERA_LERP, CAMERA_LERP)
   }

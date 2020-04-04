@@ -10,7 +10,6 @@ export class StartScene extends Phaser.Scene {
   }
 
   create(): void {
-    document.getElementById('game').style.width = window.innerWidth + 'px';
     this.scene.stop('MainScene');
     this.scene.stop('FinishScene');
     this.scene.stop('GameOverScene');

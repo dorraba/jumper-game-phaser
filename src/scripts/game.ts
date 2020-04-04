@@ -17,8 +17,11 @@ const config: any = {
   pixelArt: true,
   roundPixels: true,
   backgroundColor: '#211F30',
-  // mode: Phaser.Scale.FIT,
-  autoCenter: Phaser.Scale.CENTER_BOTH,
+  scale: {
+    parent: 'game',
+    mode: Phaser.Scale.RESIZE,
+    // autoCenter: Phaser.Scale.CENTER_BOTH,
+},
   physics: {
     default: 'arcade',
     arcade: {
@@ -42,7 +45,7 @@ export class Game extends Phaser.Game {
     this.scene.add('FinishScene', FinishScene);
     this.scene.add('StartScene', StartScene);
     IS_MOBILE && this.scene.add('ControllersScene', ControllersScene);
-    this.scene.start('StartScene');
+    this.scene.start('PreloadScene');
   }
 }
 
