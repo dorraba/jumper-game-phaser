@@ -4,7 +4,7 @@ export const LEVELS = {
   level1_1: {
     index: 0,
     id: 'level1_1',
-    name: 'Level 1-1',
+    name: 'Level 1',
     background: 'Blue',
     width: Math.min(window.innerWidth, 960),
     levelWidth: 960,
@@ -14,7 +14,7 @@ export const LEVELS = {
   level1_2: {
     index: 1,
     id: 'level1_2',
-    name: 'Level 1-2',
+    name: 'Level 2',
     background: 'Gray',
     width: Math.min(window.innerWidth, 960),
     levelWidth: 960,
@@ -24,7 +24,7 @@ export const LEVELS = {
   level1_3: {
     index: 2,
     id: 'level1_3',
-    name: 'Level 1-3',
+    name: 'Level 3',
     background: 'Gray',
     width: Math.min(window.innerWidth, 960),
     levelWidth: 960,
@@ -34,7 +34,7 @@ export const LEVELS = {
   level1_4: {
     index: 3,
     id: 'level1_4',
-    name: 'Level 1-4',
+    name: 'Level 4',
     background: 'Gray',
     width: Math.min(window.innerWidth, 960),
     levelWidth: 960,
@@ -44,7 +44,7 @@ export const LEVELS = {
   level1_5: {
     index: 4,
     id: 'level1_5',
-    name: 'Level 1-5',
+    name: 'Level 5',
     background: 'Gray',
     width: Math.min(window.innerWidth, 960),
     levelWidth: 960,
@@ -54,7 +54,7 @@ export const LEVELS = {
   level1_6: {
     index: 5,
     id: 'level1_6',
-    name: 'Level 1-6',
+    name: 'Level 6',
     background: 'Gray',
     width: Math.min(window.innerWidth, 960),
     levelWidth: 960,
@@ -64,7 +64,7 @@ export const LEVELS = {
   level1_7: {
     index: 6,
     id: 'level1_7',
-    name: 'Level 1-7',
+    name: 'Level 7',
     background: 'Gray',
     width: Math.min(window.innerWidth, 960),
     levelWidth: 960,
