@@ -61,8 +61,7 @@ export class MainScene extends Phaser.Scene {
     this.setCollisions();
     this.setCamera();
     this.initKeyboard();
-
-    this.scale.on('orientationchange', (orientation) => {
+    this.scale.on('resize', (orientation) => {
       this.scale.updateOrientation()
       this.time.delayedCall(500, this.setCamera, [], this)
     });
