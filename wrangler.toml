@@ -6,6 +6,8 @@ compatibility_date = "2025-10-26"
 command = "npm run build"
 cwd = "./"
 
+pages_build_output_dir = "dist"
+
 [env.production]
 routes = [
   { pattern = "*", zone_name = "example.com" }
