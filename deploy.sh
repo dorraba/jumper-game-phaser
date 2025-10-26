@@ -9,9 +9,9 @@ echo ""
 echo "📦 Installing dependencies..."
 npm ci --legacy-peer-deps
 
-# Build the project
+# Build the project with legacy OpenSSL provider for Node 12 compatibility
 echo "🔨 Building project..."
-npm run build
+NODE_OPTIONS=--openssl-legacy-provider npm run build
 
 # Deploy to Cloudflare Pages
 echo "☁️  Deploying to Cloudflare Pages..."
