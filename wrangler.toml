@@ -5,8 +5,7 @@ compatibility_date = "2025-10-26"
 [build]
 command = "npm run build"
 cwd = "./"
-
-pages_build_output_dir = "dist"
+output_dir = "dist"
 
 [env.production]
 routes = [
