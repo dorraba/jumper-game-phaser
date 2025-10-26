@@ -1,13 +1,4 @@
 name = "jumper-game-phaser"
 type = "javascript"
 compatibility_date = "2025-10-26"
-
-[build]
-command = "npm run build"
-cwd = "./"
-output_dir = "dist"
-
-[env.production]
-routes = [
-  { pattern = "*", zone_name = "example.com" }
-]
+pages_build_output_dir = "dist"
